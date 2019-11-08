@@ -84,6 +84,12 @@ class Image extends AbstractElement
         $xmlWriter->startElement('v:imagedata');
         $xmlWriter->writeAttribute('r:id', 'rId' . $rId);
         $xmlWriter->writeAttribute('o:title', '');
+
+        $xmlWriter->startElement('a:hlinkClick');
+        $xmlWriter->writeAttribute('xmlns:a', 'http://schemas.openxmlformats.org/drawingml/2006/main');
+        $xmlWriter->writeAttribute('r:id', 'rId' . $rId+1);
+        $xmlWriter->endElement(); // a:hlinkClick
+
         $xmlWriter->endElement(); // v:imagedata
 
         $xmlWriter->endElement(); // v:shape
@@ -116,6 +122,12 @@ class Image extends AbstractElement
         $xmlWriter->startElement('v:imagedata');
         $xmlWriter->writeAttribute('r:id', 'rId' . $rId);
         $xmlWriter->writeAttribute('o:title', '');
+
+        $xmlWriter->startElement('a:hlinkClick');
+        $xmlWriter->writeAttribute('xmlns:a', 'http://schemas.openxmlformats.org/drawingml/2006/main');
+        $xmlWriter->writeAttribute('r:id', 'rId' . $rId+1);
+        $xmlWriter->endElement(); // a:hlinkClick
+
         $xmlWriter->endElement(); // v:imagedata
         $xmlWriter->endElement(); // v:shape
         $xmlWriter->endElement(); // w:pict
