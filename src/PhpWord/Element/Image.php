@@ -139,12 +139,13 @@ class Image extends AbstractElement
      * @throws \PhpOffice\PhpWord\Exception\InvalidImageException
      * @throws \PhpOffice\PhpWord\Exception\UnsupportedImageTypeException
      */
-    public function __construct($source, $style = null, $watermark = false, $name = null)
+    public function __construct($source, $style = null, $watermark = false, $name = null, $link = null)
     {
         $this->source = $source;
         $this->style = $this->setNewStyle(new ImageStyle(), $style, true);
         $this->setIsWatermark($watermark);
         $this->setName($name);
+        $this->setLink($link);
 
         $this->checkImage();
     }
@@ -197,6 +198,26 @@ class Image extends AbstractElement
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Sets a hyper-link
+     *
+     * @param Link $value
+     */
+    public function setLink($value)
+    {
+        $this->link = $value;
+    }
+
+    /**
+     * Get the hyper-link
+     *
+     * @return null|Link
+     */
+    public function getLink()
+    {
+        return $this->link;
     }
 
     /**
